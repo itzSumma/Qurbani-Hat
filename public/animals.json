@@ -9,7 +9,7 @@
     "age": 3,
     "location": "Bogura",
     "description": "Healthy deshi cow suitable for Qurbani with natural farm care.",
-    "image": "https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=900&q=80",
+    "image": "https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=900",
     "category": "Large Animal"
   },
   {
@@ -22,7 +22,7 @@
     "age": 4,
     "location": "Sirajganj",
     "description": "Strong Sahiwal cow raised in natural farm environment.",
-    "image": "https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=900&q=80",
+    "image": "https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=900",
     "category": "Large Animal"
   },
   {
@@ -35,7 +35,7 @@
     "age": 4,
     "location": "Dhaka",
     "description": "Premium Friesian cross cow with high nutrition care.",
-    "image": "https://images.unsplash.com/photo-1545407263-7ff5aa2ad921?auto=format&fit=crop&w=900&q=80",
+    "image": "https://images.unsplash.com/photo-1545407263-7ff5aa2ad921?w=900",
     "category": "Large Animal"
   },
   {
@@ -48,7 +48,7 @@
     "age": 5,
     "location": "Rajshahi",
     "description": "Healthy Red Sindhi cow ideal for Qurbani season.",
-    "image": "https://images.unsplash.com/photo-1596733430284-f7437764b1a9?auto=format&fit=crop&w=900&q=80",
+    "image": "https://images.unsplash.com/photo-1596733430284-f7437764b1a9?w=900",
     "category": "Large Animal"
   },
   {
@@ -61,7 +61,7 @@
     "age": 2,
     "location": "Naogaon",
     "description": "Popular Black Bengal goat with active health condition.",
-    "image": "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=900&q=80",
+    "image": "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=900",
     "category": "Small Animal"
   },
   {
@@ -74,7 +74,7 @@
     "age": 2,
     "location": "Rajshahi",
     "description": "Tall Jamunapari goat with strong body structure.",
-    "image": "https://images.unsplash.com/photo-1524024973431-2ad916746881?auto=format&fit=crop&w=900&q=80",
+    "image": "https://images.unsplash.com/photo-1524024973431-2ad916746881?w=900",
     "category": "Small Animal"
   },
   {
@@ -87,7 +87,7 @@
     "age": 2,
     "location": "Mymensingh",
     "description": "Affordable healthy goat suitable for small family Qurbani.",
-    "image": "https://images.unsplash.com/photo-1537151671703-049c1b9f7d67?auto=format&fit=crop&w=900&q=80",
+    "image": "https://images.unsplash.com/photo-1537151671703-049c1b9f7d67?w=900",
     "category": "Small Animal"
   },
   {
@@ -100,7 +100,7 @@
     "age": 3,
     "location": "Dhaka",
     "description": "Premium Boer goat with excellent meat quality.",
-    "image": "https://images.unsplash.com/photo-1559181567-c3190ca9959b?auto=format&fit=crop&w=900&q=80",
+    "image": "https://images.unsplash.com/photo-1559181567-c3190ca9959b?w=900",
     "category": "Small Animal"
   },
   {
@@ -113,7 +113,7 @@
     "age": 5,
     "location": "Comilla",
     "description": "Large Holstein cow with excellent body condition.",
-    "image": "https://images.unsplash.com/photo-1560807707-8cc77767d783?auto=format&fit=crop&w=900&q=80",
+    "image": "https://images.unsplash.com/photo-1560807707-8cc77767d783?w=900",
     "category": "Large Animal"
   },
   {
@@ -126,7 +126,7 @@
     "age": 3,
     "location": "Khulna",
     "description": "Healthy local brown cow raised in natural farm.",
-    "image": "https://images.unsplash.com/photo-1560807707-8cc77767d783?auto=format&fit=crop&w=900&q=80",
+    "image": "https://images.unsplash.com/photo-1560807707-8cc77767d783?w=900",
     "category": "Large Animal"
   },
   {
@@ -139,7 +139,7 @@
     "age": 1,
     "location": "Bogura",
     "description": "Small cute goat ideal for budget Qurbani.",
-    "image": "https://images.unsplash.com/photo-1604908177522-0408ffd3b6f1?auto=format&fit=crop&w=900&q=80",
+    "image": "https://images.unsplash.com/photo-1604908177522-0408ffd3b6f1?w=900",
     "category": "Small Animal"
   },
   {
@@ -152,7 +152,7 @@
     "age": 6,
     "location": "Sylhet",
     "description": "Large premium white cow with strong body and healthy care.",
-    "image": "https://images.unsplash.com/photo-1605559424843-9e1b3f3a3c14?auto=format&fit=crop&w=900&q=80",
+    "image": "https://images.unsplash.com/photo-1605559424843-9e1b3f3a3c14?w=900",
     "category": "Large Animal"
   }
 ]
