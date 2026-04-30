@@ -10,12 +10,9 @@
     "location": "Bogura",
     "category": "Large Animal",
     "image": "https://images.unsplash.com/photo-1719340311599-582845d83221?q=80&w=687",
-    "rating": 4.7,
-    "isFeatured": true,
-    "available": true,
     "healthStatus": "Healthy",
-    "description": "Healthy deshi cow suitable for Qurbani with natural farm care.",
-    "fullDetails": "This cow is raised in a natural farm environment in Bogura. It is well-fed, vaccinated, and ready for Qurbani. Strong body structure and high quality meat potential."
+    "description": "Healthy deshi cow suitable for Qurbani.",
+    "isFeatured": true
   },
   {
     "id": 2,
@@ -28,15 +25,43 @@
     "location": "Sirajganj",
     "category": "Large Animal",
     "image": "https://plus.unsplash.com/premium_photo-1668446123157-d7c8659e3ff9?q=80&w=687",
-    "rating": 4.8,
-    "isFeatured": true,
-    "available": true,
     "healthStatus": "Premium",
-    "description": "Strong Sahiwal cow raised in natural farm environment.",
-    "fullDetails": "Premium Sahiwal cow from Sirajganj dairy farm. High milk lineage, strong body, and excellent Qurbani choice."
+    "description": "Strong Sahiwal cow with premium quality.",
+    "isFeatured": true
   },
   {
     "id": 3,
+    "name": "Black Bengal Goat",
+    "type": "Goat",
+    "breed": "Black Bengal",
+    "price": 22000,
+    "weight": 34,
+    "age": 2,
+    "location": "Naogaon",
+    "category": "Small Animal",
+    "image": "https://images.unsplash.com/photo-1571076442742-2d459d0c5000?q=80&w=732",
+    "healthStatus": "Healthy",
+    "description": "Healthy Black Bengal goat for Qurbani.",
+    "isFeatured": true
+  },
+  {
+    "id": 4,
+    "name": "Premium Goat",
+    "type": "Goat",
+    "breed": "Boer",
+    "price": 28000,
+    "weight": 38,
+    "age": 2,
+    "location": "Rajshahi",
+    "category": "Small Animal",
+    "image": "https://plus.unsplash.com/premium_photo-1691030658378-acdaab929bed?q=80&w=687",
+    "healthStatus": "Premium",
+    "description": "Strong Boer goat with excellent meat quality.",
+    "isFeatured": true
+  },
+
+  {
+    "id": 5,
     "name": "Friesian Cross Cow",
     "type": "Cow",
     "breed": "Friesian Cross",
@@ -46,15 +71,11 @@
     "location": "Dhaka",
     "category": "Large Animal",
     "image": "https://images.unsplash.com/photo-1595365691689-6b7b4e1970cf?q=80&w=765",
-    "rating": 4.6,
-    "isFeatured": false,
-    "available": true,
     "healthStatus": "Healthy",
-    "description": "Premium Friesian cross cow with high nutrition care.",
-    "fullDetails": "High-quality Friesian cross breed cow in Dhaka farm. Excellent weight gain and healthy condition."
+    "description": "High quality Friesian cross cow."
   },
   {
-    "id": 4,
+    "id": 6,
     "name": "Farm Cow",
     "type": "Cow",
     "breed": "Local Breed",
@@ -64,16 +85,11 @@
     "location": "Comilla",
     "category": "Large Animal",
     "image": "https://media.istockphoto.com/id/1403454940/photo/cow-in-a-field.jpg",
-    "rating": 4.5,
-    "isFeatured": true,
-    "available": true,
     "healthStatus": "Natural",
-    "description": "Healthy farm cow in natural environment.",
-    "fullDetails": "Naturally raised cow from Comilla farm with organic feed and open field grazing system."
+    "description": "Naturally raised farm cow."
   },
-
   {
-    "id": 5,
+    "id": 7,
     "name": "Red Sindhi Cow",
     "type": "Cow",
     "breed": "Sindhi",
@@ -83,16 +99,11 @@
     "location": "Khulna",
     "category": "Large Animal",
     "image": "https://images.unsplash.com/photo-1545407263-7ff5aa2ad921?q=80&w=735",
-    "rating": 4.6,
-    "isFeatured": false,
-    "available": true,
     "healthStatus": "Strong",
-    "description": "Strong Red Sindhi cow for Qurbani.",
-    "fullDetails": "Well-maintained Red Sindhi cow with strong bone structure and high endurance."
+    "description": "Strong Red Sindhi cow."
   },
-
   {
-    "id": 6,
+    "id": 8,
     "name": "Local Brown Cow",
     "type": "Cow",
     "breed": "Deshi Mix",
@@ -102,16 +113,12 @@
     "location": "Bogura",
     "category": "Large Animal",
     "image": "https://images.unsplash.com/photo-1593768697824-f31b967e6c55?q=80&w=689",
-    "rating": 4.3,
-    "isFeatured": false,
-    "available": true,
     "healthStatus": "Good",
-    "description": "Healthy local cow raised in farm.",
-    "fullDetails": "Budget-friendly healthy cow from Bogura rural farm."
+    "description": "Budget friendly local cow."
   },
 
   {
-    "id": 7,
+    "id": 9,
     "name": "Premium Dairy Cow",
     "type": "Cow",
     "breed": "Cross Breed",
@@ -121,16 +128,11 @@
     "location": "Sylhet",
     "category": "Large Animal",
     "image": "https://plus.unsplash.com/premium_photo-1668446123344-d7945fb07eaa?q=80&w=687",
-    "rating": 4.7,
-    "isFeatured": false,
-    "available": true,
     "healthStatus": "Premium",
-    "description": "High quality dairy cow.",
-    "fullDetails": "High milk production lineage cow from Sylhet region."
+    "description": "High milk production cow."
   },
-
   {
-    "id": 8,
+    "id": 10,
     "name": "White Cow",
     "type": "Cow",
     "breed": "Holstein",
@@ -140,11 +142,36 @@
     "location": "Chittagong",
     "category": "Large Animal",
     "image": "https://plus.unsplash.com/premium_photo-1667393902177-924d8a4c491d?q=80&w=687",
-    "rating": 4.8,
-    "isFeatured": true,
-    "available": true,
     "healthStatus": "Premium",
-    "description": "Premium white cow with strong body.",
-    "fullDetails": "Large Holstein cow with excellent structure and Qurbani suitability."
+    "description": "Large premium white cow."
+  },
+
+  {
+    "id": 11,
+    "name": "Cute Goat",
+    "type": "Goat",
+    "breed": "Mini Deshi",
+    "price": 15000,
+    "weight": 20,
+    "age": 1,
+    "location": "Bogura",
+    "category": "Small Animal",
+    "image": "https://images.unsplash.com/photo-1675769332176-250535c5c4f1?q=80&w=1170",
+    "healthStatus": "Good",
+    "description": "Small cute goat for budget buyers."
+  },
+  {
+    "id": 12,
+    "name": "Farm Goat",
+    "type": "Goat",
+    "breed": "Local Mix",
+    "price": 30000,
+    "weight": 40,
+    "age": 3,
+    "location": "Dhaka",
+    "category": "Small Animal",
+    "image": "https://images.unsplash.com/photo-1674133496934-109d997eec7d?q=80&w=687",
+    "healthStatus": "Healthy",
+    "description": "Healthy farm goat raised naturally."
   }
 ]
