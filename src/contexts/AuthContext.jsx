@@ -16,7 +16,9 @@ export function AuthProvider({ children }) {
         setUser(JSON.parse(savedUser));
       }
     } catch {
-      window.localStorage.removeItem(STORAGE_KEY);
+      try {
+        window.localStorage.removeItem(STORAGE_KEY);
+      } catch {}
     } finally {
       setIsReady(true);
     }
@@ -31,12 +33,16 @@ export function AuthProvider({ children }) {
     };
 
     setUser(normalizedUser);
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(normalizedUser));
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(normalizedUser));
+    } catch {}
   };
 
   const logout = () => {
     setUser(null);
-    window.localStorage.removeItem(STORAGE_KEY);
+    try {
+      window.localStorage.removeItem(STORAGE_KEY);
+    } catch {}
   };
 
   return (
