@@ -1,13 +1,14 @@
 import { Outfit } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/Components/Navbar";
+import Footer from "@/Components/Footer";
 
 const outfit = Outfit({
   subsets: ["latin"],
 });
 
 export const metadata = {
-  title: "QurbaniMarket",
+  title: "QurbaniHat",
   description: "Livestock Booking Platform",
 };
 
@@ -25,6 +26,8 @@ export default function RootLayout({ children }) {
         <main className="flex-1 w-full max-w-7xl mx-auto px-4 py-6">
           {children}
         </main>
+
+        <Footer />
 
       </body>
     </html>
