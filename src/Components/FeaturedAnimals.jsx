@@ -1,26 +1,24 @@
-import React from "react";
+import { getFeaturedAnimals } from "@/lib/animals";
 import AnimalCard from "./AnimalCard";
-
+import SectionHeader from "./SectionHeader";
 
 const FeaturedAnimals = async () => {
-  const res = await fetch("https://qurbani-hat-r6bq.vercel.app/animals.json");
-  const animals = await res.json();
-
-  const featuredAnimals = animals.slice(0, 4);
+  const featuredAnimals = await getFeaturedAnimals(4);
 
   return (
-    <div className="p-10">
-      {/* HEADING */}
-      <h2 className="text-2xl font-bold mb-5 text-center">
-        Featured Animals
-      </h2>
+    <section className="mt-20">
+      <SectionHeader
+        eyebrow="Featured Listings"
+        title="Featured Animals"
+        description="Explore four standout animals selected for healthy condition, clear information, and strong buyer demand."
+      />
 
-     <div>
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
         {featuredAnimals.map((animal) => (
           <AnimalCard key={animal.id} animal={animal} />
         ))}
-     </div>
-    </div>
+      </div>
+    </section>
   );
 };
 

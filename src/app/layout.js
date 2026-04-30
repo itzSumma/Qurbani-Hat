@@ -1,6 +1,7 @@
 import "./globals.css";
 import Navbar from "@/Components/Navbar";
 import Footer from "@/Components/Footer";
+import { AuthProvider } from "@/contexts/AuthContext";
 
 export const metadata = {
   title: "QurbaniHat",
@@ -11,11 +12,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="h-full">
       <body className="min-h-full flex flex-col bg-gray-950 text-white antialiased">
-        <Navbar />
-        <main className="flex-1 w-full max-w-7xl mx-auto px-4 py-6">
-          {children}
-        </main>
-        <Footer />
+        <AuthProvider>
+          <Navbar />
+          <main className="flex-1 w-full max-w-7xl mx-auto px-4 py-6">
+            {children}
+          </main>
+          <Footer />
+        </AuthProvider>
       </body>
     </html>
   );

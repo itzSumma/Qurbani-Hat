@@ -1,11 +1,25 @@
-import React from 'react';
+import AllAnimalsClient from "@/Components/AllAnimalsClient";
+import SectionHeader from "@/Components/SectionHeader";
+import { getAnimals } from "@/lib/animals";
 
-const AnimalPage = () => {
-  return (
-    <div>
-      show all animals here
-    </div>
-  );
+export const metadata = {
+  title: "All Animals | QurbaniHat",
+  description: "Browse all available Qurbani animals and compare prices.",
 };
 
-export default AnimalPage;
+export default async function AnimalPage() {
+  const animals = await getAnimals();
+
+  return (
+    <section className="py-4">
+      <SectionHeader
+        eyebrow="Marketplace"
+        title="All Animals"
+        description="Compare all available animals and switch the list order by price."
+        align="left"
+      />
+
+      <AllAnimalsClient animals={animals} />
+    </section>
+  );
+}

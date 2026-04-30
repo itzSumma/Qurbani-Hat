@@ -1,71 +1,72 @@
 import Image from "next/image";
-import React from "react";
+import Link from "next/link";
 
 const AnimalCard = ({ animal }) => {
   if (!animal) return null;
 
   return (
-    <div className="border rounded-lg overflow-hidden shadow-md hover:shadow-xl transition bg-white">
+    <article className="group relative rounded-2xl bg-gradient-to-r from-emerald-500/30 via-cyan-500/20 to-emerald-500/30 p-[1px] transition hover:from-emerald-400 hover:via-cyan-400 hover:to-emerald-400">
+      <div className="h-full overflow-hidden rounded-2xl bg-[#0b1220] shadow-lg transition-all duration-300 group-hover:-translate-y-1">
+        <div className="relative h-56 w-full overflow-hidden">
+          <Image
+            src={animal.image}
+            alt={animal.name}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-110"
+          />
 
-      {/* IMAGE */}
-      <div className="relative w-full aspect-[4/3] bg-gray-100">
-  <Image
-    src={animal.image}
-    alt={animal.name}
-    fill
-    className="object-contain hover:scale-105 transition-transform duration-300"
-    sizes="(max-width: 768px) 100vw, 25vw"
-  />
-</div>
+          <div className="absolute left-3 top-3 flex gap-2">
+            <span className="rounded-full bg-black/60 px-2 py-1 text-xs text-white">
+              {animal.type}
+            </span>
+            <span className="rounded-full bg-emerald-500/90 px-2 py-1 text-xs font-semibold text-black">
+              Star {animal.rating || 4.5}
+            </span>
+          </div>
 
-      {/* CONTENT */}
-      <div className="p-4 space-y-2">
+          <div className="absolute right-3 top-3 flex items-center gap-1 rounded-full bg-black/60 px-2 py-1 text-xs text-white">
+            <span className="h-2 w-2 rounded-full bg-green-400" />
+            Available
+          </div>
+        </div>
 
-        {/* NAME */}
-        <h2 className="text-lg font-bold">{animal.name}</h2>
+        <div className="space-y-3 p-4">
+          <div>
+            <h2 className="text-lg font-bold text-white transition group-hover:text-emerald-300">
+              {animal.name}
+            </h2>
+            <p className="text-sm text-slate-400">
+              {animal.breed} | {animal.location}
+            </p>
+          </div>
 
-        {/* TYPE + BREED */}
-        <p className="text-sm text-gray-600">
-          {animal.type} • {animal.breed}
-        </p>
+          <span className="inline-flex items-center rounded-full bg-emerald-500/10 px-2 py-1 text-xs text-emerald-300">
+            Health: {animal.healthStatus || "Healthy"}
+          </span>
 
-        {/* HEALTH STATUS */}
-        <span className="inline-block text-xs px-2 py-1 rounded bg-green-100 text-green-700 font-medium">
-          🩺 {animal.healthStatus || "Unknown"}
-        </span>
+          <p className="line-clamp-2 text-sm text-slate-400">
+            {animal.description}
+          </p>
 
-        {/* DESCRIPTION */}
-        <p className="text-sm text-gray-500 line-clamp-2">
-          {animal.description}
-        </p>
+          <div className="flex items-center justify-between pt-1">
+            <p className="text-lg font-bold text-emerald-400">
+              BDT {animal.price.toLocaleString()}
+            </p>
+            <p className="text-xs text-slate-500">
+              {animal.weight}kg | {animal.age}yr
+            </p>
+          </div>
 
-        {/* PRICE */}
-        <p className="text-green-600 font-semibold text-lg">
-          ৳ {animal.price}
-        </p>
-
-        {/* WEIGHT + AGE */}
-        <p className="text-sm text-gray-500">
-          ⚖️ {animal.weight} kg | 🎂 {animal.age} years
-        </p>
-
-        {/* LOCATION */}
-        <p className="text-sm text-gray-500">
-          📍 {animal.location}
-        </p>
-
-        {/* CATEGORY */}
-        <span className="inline-block mt-1 text-xs bg-gray-200 px-2 py-1 rounded">
-          {animal.category}
-        </span>
-
-        {/* BUTTON */}
-        <button className="mt-3 w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition">
-          View Details
-        </button>
-
+          <Link
+            href={`/animals/${animal.id}`}
+            className="mt-3 block w-full rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 py-2 text-center font-semibold text-black transition hover:opacity-90"
+          >
+            View Details
+          </Link>
+        </div>
       </div>
-    </div>
+    </article>
   );
 };
 
