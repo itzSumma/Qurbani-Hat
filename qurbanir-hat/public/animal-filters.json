@@ -1,0 +1,29 @@
+{
+  "sortOptions": [
+    {
+      "label": "Price: Low to High",
+      "value": "price-asc"
+    },
+    {
+      "label": "Price: High to Low",
+      "value": "price-desc"
+    }
+  ],
+
+  "filters": {
+    "types": ["All", "Cow", "Goat"],
+    "categories": ["All", "Large Animal", "Small Animal"],
+    "locations": [
+      "All",
+      "Bogura",
+      "Sirajganj",
+      "Naogaon",
+      "Rajshahi",
+      "Dhaka",
+      "Mymensingh",
+      "Comilla",
+      "Khulna",
+      "Sylhet"
+    ]
+  }
+}
