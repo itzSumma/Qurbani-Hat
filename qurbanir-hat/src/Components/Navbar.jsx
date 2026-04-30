@@ -1,122 +1,178 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-const Navbar = () => {
-  const [user, setUser] = useState(null);
+const Navbar = ({ user = null, onLogout }) => {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   const links = [
     { name: "Home", href: "/" },
     { name: "All Animals", href: "/animals" },
+    ...(user ? [{ name: "My Profile", href: "/my-profile" }] : []),
   ];
 
-  return (
-    <nav className="bg-white shadow-md">
-      
-      <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+  const userImage = user?.image || user?.photoURL || user?.photo || "/avatar.png";
 
-        {/* LOGO */}
-        <Link href="/" className="text-2xl font-bold text-teal-600">
+  const getLinkClass = (href) =>
+    `rounded-full px-3 py-2 text-sm md:text-base transition ${
+      pathname === href
+        ? "bg-[#10b981] text-[#052e2b]"
+        : "text-white hover:bg-[#1f2937]"
+    }`;
+
+  return (
+    <nav className="border-b border-[#1f2937] bg-[#0f172a] text-white">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
+        <Link
+          href="/"
+          className="text-xl font-bold tracking-wide md:text-2xl lg:text-3xl"
+        >
           Qurbani
-          <span className="text-purple-700 text-3xl font-bold">Market</span>
+          <span className="text-[#10b981]">Hat</span>
         </Link>
 
-        {/* DESKTOP LINKS */}
-        <div className="hidden md:flex text-xl font-medium items-center gap-6">
+        <div className="hidden items-center gap-4 md:flex">
           {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="hover:text-white bg-purple-400 border border-zinc-400 px-2 py-1 rounded-lg"
-            >
+            <Link key={link.href} href={link.href} className={getLinkClass(link.href)}>
               {link.name}
             </Link>
           ))}
         </div>
 
-        {/* AUTH (DESKTOP) */}
         <div className="hidden md:block">
           {user ? (
             <div className="flex items-center gap-3">
               <Image
-                src={user?.photo || "/avatar.png"}
+                src={userImage}
                 width={40}
                 height={40}
-                className="rounded-full"
-                alt="user"
+                className="h-10 w-10 rounded-full border border-[#374151] object-cover"
+                alt={user?.name || "User avatar"}
               />
-              <button className="bg-red-500 text-white px-3 py-1 rounded">
+
+              <button
+                type="button"
+                onClick={onLogout}
+                className="rounded-full bg-red-500 px-4 py-2 text-sm transition hover:bg-red-600 md:text-base"
+              >
                 Logout
               </button>
             </div>
           ) : (
             <div className="flex gap-3">
-              <Link href="/login">
-                <button className="border px-3 py-1 rounded">Login</button>
+              <Link
+                href="/login"
+                className="rounded-full border border-[#374151] px-4 py-2 text-sm transition hover:bg-[#1f2937] md:text-base"
+              >
+                Login
               </Link>
 
-              <Link href="/register">
-                <button className="bg-purple-400 text-lg font-medium px-3 py-1 rounded">
-                  Register
-                </button>
+              <Link
+                href="/register"
+                className="rounded-full bg-[#10b981] px-4 py-2 text-sm text-[#052e2b] transition hover:bg-[#059669] md:text-base"
+              >
+                Register
               </Link>
             </div>
           )}
         </div>
 
-        {/* MOBILE MENU BUTTON */}
         <button
-          className="md:hidden text-3xl"
-          onClick={() => setOpen(!open)}
+          type="button"
+          aria-label={open ? "Close navigation menu" : "Open navigation menu"}
+          className="md:hidden"
+          onClick={() => setOpen((prev) => !prev)}
         >
-          ☰
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            className="h-8 w-8"
+          >
+            {open ? (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 6l12 12M18 6L6 18"
+              />
+            ) : (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 7h16M4 12h16M4 17h16"
+              />
+            )}
+          </svg>
         </button>
       </div>
 
-      {/* MOBILE MENU */}
       {open && (
-        <div className="md:hidden px-4 pb-4 space-y-3">
-
-          {/* LINKS */}
-          <div className="flex flex-col gap-2">
+        <div className="space-y-3 border-t border-[#1f2937] px-4 pb-4 md:hidden">
+          <div className="flex flex-col gap-2 pt-3">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="bg-purple-400 text-white px-3 py-2 rounded"
                 onClick={() => setOpen(false)}
+                className={getLinkClass(link.href)}
               >
                 {link.name}
               </Link>
             ))}
           </div>
 
-          <hr />
+          <hr className="border-[#374151]" />
 
-          {/* AUTH MOBILE */}
           {user ? (
-            <button className="bg-red-500 text-white px-3 py-2 rounded w-full">
-              Logout
-            </button>
+            <div className="space-y-3">
+              <div className="flex items-center gap-3 rounded-2xl bg-[#111827] px-3 py-3">
+                <Image
+                  src={userImage}
+                  width={44}
+                  height={44}
+                  className="h-11 w-11 rounded-full border border-[#374151] object-cover"
+                  alt={user?.name || "User avatar"}
+                />
+
+                <div>
+                  <p className="font-semibold">{user?.name || "Logged in user"}</p>
+                  <p className="text-sm text-slate-300">{user?.email || "Profile active"}</p>
+                </div>
+              </div>
+
+              <button
+                type="button"
+                onClick={onLogout}
+                className="w-full rounded-full bg-red-500 px-3 py-2 text-sm md:text-base"
+              >
+                Logout
+              </button>
+            </div>
           ) : (
             <div className="flex flex-col gap-2">
-              <Link href="/login">
-                <button className="border px-3 py-2 rounded ">
-                  Login
-                </button>
+              <Link
+                href="/login"
+                onClick={() => setOpen(false)}
+                className="rounded-full border border-[#374151] px-3 py-2 text-center text-sm hover:bg-[#1f2937] md:text-base"
+              >
+                Login
               </Link>
 
-              <Link href="/register">
-                <button className="bg-purple-600 text-white px-3 py-2 rounded ">
-                  Register
-                </button>
+              <Link
+                href="/register"
+                onClick={() => setOpen(false)}
+                className="rounded-full bg-[#10b981] px-3 py-2 text-center text-sm text-[#052e2b] hover:bg-[#059669] md:text-base"
+              >
+                Register
               </Link>
             </div>
           )}
-
         </div>
       )}
     </nav>
