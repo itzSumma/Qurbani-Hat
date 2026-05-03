@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useState } from "react";
 import { authClient } from "@/lib/auth-client";
 import { Check } from "@gravity-ui/icons";
 import {
@@ -20,11 +21,23 @@ const inputStyles =
 
 export default function LoginPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const [errorMessage, setErrorMessage] = useState("");
+  const [toast, setToast] = useState({ message: "", type: "", visible: false });
+  const nextPath = searchParams.get("next") || "/my-profile";
+
+  const showToast = (message, type = "success") => {
+    setToast({ message, type, visible: true });
+    setTimeout(() => {
+      setToast((current) => (current.message === message ? { ...current, visible: false } : current));
+    }, 3600);
+  };
 
   const handlGoogleSignIn = async () => {
     await authClient.signIn.social({
       provider: "google",
     });
+    router.push(nextPath);
   };
 
   const onSubmit = async (e) => {
@@ -38,11 +51,16 @@ export default function LoginPage() {
       password,
     });
 
-    console.log({ data, error });
-
-    if (!error) {
-      router.push("/");
+    if (error) {
+      const message = error.message || "Login failed. Please check your credentials.";
+      setErrorMessage(message);
+      showToast(message, "error");
+      return;
     }
+
+    setErrorMessage("");
+    showToast("Login successful! Redirecting…", "success");
+    setTimeout(() => router.push(nextPath), 700);
   };
 
   return (
@@ -50,6 +68,14 @@ export default function LoginPage() {
       {/* Background Ornaments */}
       <div className="absolute inset-x-0 top-0 -z-10 h-72 bg-[radial-gradient(circle_at_top,rgba(16,185,129,0.25),transparent_60%)]" />
       <div className="absolute left-1/2 top-10 -z-10 h-60 w-60 -translate-x-1/2 rounded-full bg-emerald-500/10 blur-3xl" />
+
+      {toast.visible ? (
+        <div className="fixed right-4 top-4 z-50 w-full max-w-sm rounded-3xl border border-white/10 bg-slate-950/95 p-4 shadow-2xl backdrop-blur transition-opacity duration-300">
+          <div className={`rounded-2xl px-4 py-3 text-sm font-semibold ${toast.type === "error" ? "bg-rose-500/15 text-rose-200" : "bg-emerald-500/15 text-emerald-200"}`}>
+            {toast.message}
+          </div>
+        </div>
+      ) : null}
 
       <div className="grid items-center gap-10 lg:grid-cols-[1fr_1fr]">
         {/* Branding Section */}
@@ -136,19 +162,24 @@ export default function LoginPage() {
               <FieldError />
             </TextField>
 
-            <div className="mt-1 flex flex-col gap-2.5 sm:flex-row">
-              <Button
-                type="submit"
-                className="h-11 flex-1 rounded-xl bg-gradient-to-r from-emerald-400 to-cyan-500 px-4 text-sm font-semibold text-black shadow-lg transition hover:scale-[1.02]">
-                <Check />
-                Sign In
-              </Button>
-              <Button
-                type="reset"
-                variant="bordered"
-                className="h-11 flex-1 rounded-xl border-white/20 px-4 text-sm text-white hover:bg-white/10">
-                Reset
-              </Button>
+            <div className="space-y-3">
+              {errorMessage ? (
+                <p className="text-sm text-red-400">{errorMessage}</p>
+              ) : null}
+              <div className="mt-1 flex flex-col gap-2.5 sm:flex-row">
+                <Button
+                  type="submit"
+                  className="h-11 flex-1 rounded-xl bg-gradient-to-r from-emerald-400 to-cyan-500 px-4 text-sm font-semibold text-black shadow-lg transition hover:scale-[1.02]">
+                  <Check />
+                  Sign In
+                </Button>
+                <Button
+                  type="reset"
+                  variant="bordered"
+                  className="h-11 flex-1 rounded-xl border-white/20 px-4 text-sm text-white hover:bg-white/10">
+                  Reset
+                </Button>
+              </div>
             </div>
           </Form>
 

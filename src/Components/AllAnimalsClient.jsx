@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import filterConfig from "../../public/animal-filters.json";
 import AnimalCard from "./AnimalCard";
+import { useAuth } from "@/contexts/AuthContext";
 
 const sortAnimals = (animals, sortOrder) => {
   const sorted = animals.slice();
@@ -27,12 +29,36 @@ const filterAnimals = (animals, filters) =>
   });
 
 const AllAnimalsClient = ({ animals }) => {
+  const { user, isReady } = useAuth();
   const [sortOrder, setSortOrder] = useState("price-asc");
   const [filters, setFilters] = useState({
     type: "All",
     category: "All",
     location: "All",
   });
+
+  if (!isReady) {
+    return (
+      <div className="py-16 text-center text-slate-300">Checking login status...</div>
+    );
+  }
+
+  if (!user) {
+    return (
+      <div className="mx-auto max-w-3xl rounded-3xl border border-white/10 bg-slate-950/70 p-10 text-center text-slate-200">
+        <h2 className="text-2xl font-semibold text-white">Login Required</h2>
+        <p className="mt-3 text-slate-400">
+          You must log in to view all animals and animal details.
+        </p>
+        <Link
+          href="/login?next=/animals"
+          className="mt-6 inline-flex rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-black transition hover:bg-emerald-400"
+        >
+          Go to Login
+        </Link>
+      </div>
+    );
+  }
 
   const filteredAnimals = filterAnimals(animals, filters);
   const sortedAnimals = sortAnimals(filteredAnimals, sortOrder);

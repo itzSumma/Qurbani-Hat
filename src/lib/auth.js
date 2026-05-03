@@ -6,16 +6,17 @@ const client = new MongoClient(process.env.MONGODB_URI);
 const db = client.db("qurbani-hat");
 
 export const auth = betterAuth({
+  baseURL: process.env.BETTER_AUTH_URL,
   database: mongodbAdapter(db, {
-    client
+    client,
   }),
   emailAndPassword: {
     enabled: true,
-  }, 
-  socialProviders:{
+  },
+  socialProviders: {
     google: {
       clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET
-    }
-  }
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    },
+  },
 });
