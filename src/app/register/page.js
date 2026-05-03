@@ -49,7 +49,7 @@ export default function SignUpPage() {
       <div className="absolute left-1/2 top-10 -z-10 h-60 w-60 -translate-x-1/2 rounded-full bg-emerald-500/10 blur-3xl" />
 
       <div className="grid items-center gap-10 lg:grid-cols-[1fr_1fr]">
-        <div className="rounded-3xl border border-emerald-400/10 bg-slate-950/50 p-8 shadow-xl backdrop-blur">
+        <div className="animate__animated animate__fadeInLeft rounded-3xl border border-emerald-400/10 bg-slate-950/50 p-8 shadow-xl backdrop-blur">
           <p className="text-xs uppercase tracking-[0.35em] text-emerald-200">
             QurbaniHat
           </p>
@@ -82,7 +82,7 @@ export default function SignUpPage() {
           </div>
         </div>
 
-        <Card className="mx-auto w-full max-w-[520px] rounded-3xl border border-white/10 bg-slate-950/90 shadow-2xl backdrop-blur">
+        <Card className="animate__animated animate__fadeInUp mx-auto w-full max-w-[520px] rounded-3xl border border-white/10 bg-slate-950/90 shadow-2xl backdrop-blur">
           <div className="border-b border-white/10 px-8 py-6">
             <p className="text-xs uppercase text-emerald-200">Registration</p>
             <h2 className="mt-2 text-3xl font-bold text-white">Sign Up</h2>

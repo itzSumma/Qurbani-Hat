@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Hero = () => {
   return (
-    <section className="relative flex min-h-[80vh] items-center overflow-hidden rounded-3xl border border-emerald-900/40 bg-[#031310] shadow-[0_30px_80px_rgba(0,0,0,0.35)]">
+    <section className="animate__animated animate__fadeIn relative flex min-h-[80vh] items-center overflow-hidden rounded-3xl border border-emerald-900/40 bg-[#031310] shadow-[0_30px_80px_rgba(0,0,0,0.35)]">
       <Image
         src="https://images.unsplash.com/photo-1500595046743-cd271d694d30"
         alt="Healthy livestock field"
@@ -17,7 +17,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(16,185,129,0.25),transparent_40%)]" />
 
       <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-10 px-5 py-14 md:px-10 lg:flex-row lg:items-center lg:px-14">
-        <div className="max-w-3xl text-center lg:text-left">
+        <div className="animate__animated animate__fadeInUp max-w-3xl text-center lg:text-left">
           <span className="inline-block rounded-full border border-emerald-400/30 bg-emerald-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-200">
             Trusted Qurbani Marketplace
           </span>
@@ -50,21 +50,30 @@ const Hero = () => {
         </div>
 
         <div className="grid gap-4 sm:grid-cols-3 lg:w-[320px] lg:grid-cols-1">
-          <div className="rounded-2xl border border-white/10 bg-white/10 p-5 backdrop-blur-md">
+          <div
+            className="animate__animated animate__fadeInRight rounded-2xl border border-white/10 bg-white/10 p-5 backdrop-blur-md"
+            style={{ animationDelay: "120ms", animationFillMode: "both" }}
+          >
             <p className="text-sm text-emerald-200">Featured Types</p>
             <p className="mt-2 text-xl font-semibold text-white">
               Cows and Goats
             </p>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-white/10 p-5 backdrop-blur-md">
+          <div
+            className="animate__animated animate__fadeInRight rounded-2xl border border-white/10 bg-white/10 p-5 backdrop-blur-md"
+            style={{ animationDelay: "220ms", animationFillMode: "both" }}
+          >
             <p className="text-sm text-emerald-200">Details</p>
             <p className="mt-2 text-xl font-semibold text-white">
               Breed, Weight, Location
             </p>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-white/10 p-5 backdrop-blur-md">
+          <div
+            className="animate__animated animate__fadeInRight rounded-2xl border border-white/10 bg-white/10 p-5 backdrop-blur-md"
+            style={{ animationDelay: "320ms", animationFillMode: "both" }}
+          >
             <p className="text-sm text-emerald-200">Booking</p>
             <p className="mt-2 text-xl font-semibold text-white">
               Fast and Secure

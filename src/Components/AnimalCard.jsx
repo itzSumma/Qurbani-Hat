@@ -1,11 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const AnimalCard = ({ animal }) => {
+const AnimalCard = ({ animal, index = 0 }) => {
   if (!animal) return null;
 
   return (
-    <article className="group relative rounded-2xl bg-gradient-to-r from-emerald-500/30 via-cyan-500/20 to-emerald-500/30 p-[1px] transition hover:from-emerald-400 hover:via-cyan-400 hover:to-emerald-400">
+    <article
+      className="animate__animated animate__fadeInUp group relative rounded-2xl bg-gradient-to-r from-emerald-500/30 via-cyan-500/20 to-emerald-500/30 p-[1px] transition hover:from-emerald-400 hover:via-cyan-400 hover:to-emerald-400"
+      style={{
+        animationDelay: `${Math.min(index * 90, 450)}ms`,
+        animationFillMode: "both",
+      }}
+    >
       <div className="h-full overflow-hidden rounded-2xl bg-[#0b1220] shadow-lg transition-all duration-300 group-hover:-translate-y-1">
         <div className="relative h-56 w-full overflow-hidden">
           <Image

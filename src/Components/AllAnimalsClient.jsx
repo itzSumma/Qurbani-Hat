@@ -46,7 +46,7 @@ const AllAnimalsClient = ({ animals }) => {
 
   return (
     <>
-      <div className="mb-8 rounded-3xl border border-white/10 bg-slate-950/60 px-5 py-5 text-sm text-slate-300">
+      <div className="animate__animated animate__fadeInUp mb-8 rounded-3xl border border-white/10 bg-slate-950/60 px-5 py-5 text-sm text-slate-300">
         <div className="grid gap-4 lg:grid-cols-4">
           <label className="flex flex-col gap-2">
             <span>Type</span>
@@ -126,13 +126,13 @@ const AllAnimalsClient = ({ animals }) => {
       </div>
 
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
-        {sortedAnimals.map((animal) => (
-          <AnimalCard key={animal.id} animal={animal} />
+        {sortedAnimals.map((animal, index) => (
+          <AnimalCard key={animal.id} animal={animal} index={index} />
         ))}
       </div>
 
       {sortedAnimals.length === 0 ? (
-        <div className="mt-8 rounded-3xl border border-white/10 bg-slate-950/50 px-5 py-10 text-center text-slate-300">
+        <div className="animate__animated animate__fadeIn mt-8 rounded-3xl border border-white/10 bg-slate-950/50 px-5 py-10 text-center text-slate-300">
           No animals matched your selected filters.
         </div>
       ) : null}
