@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
 import { Check } from "@gravity-ui/icons";
 import {
@@ -18,6 +19,14 @@ const inputStyles =
   "h-12 w-full rounded-xl border border-white/10 bg-slate-900/80 px-4 text-sm text-white placeholder:text-slate-500 outline-none transition-all duration-200 focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400/40";
 
 export default function LoginPage() {
+  const router = useRouter();
+
+  const handlGoogleSignIn = async () => {
+    await authClient.signIn.social({
+      provider: "google",
+    });
+  };
+
   const onSubmit = async (e) => {
     e.preventDefault();
 
@@ -27,16 +36,13 @@ export default function LoginPage() {
     const { data, error } = await authClient.signIn.email({
       email,
       password,
-      callbackURL: "/",
     });
 
     console.log({ data, error });
-  };
 
-  const handlGoogleSignIn = async () => {
-    await authClient.signIn.social({
-      provider: "google",
-    });
+    if (!error) {
+      router.push("/");
+    }
   };
 
   return (
@@ -97,7 +103,7 @@ export default function LoginPage() {
               className="w-full"
               validate={(value) => {
                 if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)) {
-                  return "Please enter a valid email address";
+                  return "Invalid email address";
                 }
                 return null;
               }}>
@@ -114,23 +120,18 @@ export default function LoginPage() {
               type="password"
               className="w-full"
               validate={(value) => {
-                if (value.length < 8)
-                  return "Password must be at least 8 characters";
+                if (value.length < 8) return "Minimum 8 characters required";
                 if (!/[A-Z]/.test(value))
-                  return "Password must contain at least one uppercase letter";
-                if (!/[0-9]/.test(value))
-                  return "Password must contain at least one number";
+                  return "Add at least 1 uppercase letter";
+                if (!/[0-9]/.test(value)) return "Add at least 1 number";
                 return null;
               }}>
               <Label className="mb-2 block text-sm font-medium text-slate-300">
                 Password
               </Label>
-              <Input
-                className={inputStyles}
-                placeholder="Enter your password"
-              />
+              <Input className={inputStyles} placeholder="Enter password" />
               <Description className="pt-1 text-xs text-slate-500">
-                Must be at least 8 characters with 1 uppercase and 1 number
+                Must include uppercase and number
               </Description>
               <FieldError />
             </TextField>
@@ -163,12 +164,12 @@ export default function LoginPage() {
             <Button
               onClick={handlGoogleSignIn}
               variant="bordered"
-              className="h-11 w-full rounded-xl border-white/20 text-sm text-white hover:bg-white/10 items-center">
+              className="h-11 w-full rounded-xl border-white/20 text-sm text-white hover:bg-white/10">
               <GrGoogle /> Sign In With Google
             </Button>
           </div>
 
-          <p className="pb-8 text-center text-sm text-slate-400">
+          <p className="pb-6 text-center text-sm text-slate-400">
             Don&apos;t have an account?{" "}
             <Link
               href="/register"
