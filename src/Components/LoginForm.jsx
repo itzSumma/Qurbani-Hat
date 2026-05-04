@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
+import { toast } from "react-toastify";
 
 const initialForm = {
   name: "",
@@ -34,6 +35,7 @@ export default function LoginForm({ nextPath = "/my-profile" }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     login(formData);
+    toast.success(`Welcome back, ${formData.name}!`);
     router.push(nextPath);
   };
 

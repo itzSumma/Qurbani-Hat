@@ -9,7 +9,7 @@ export const metadata = {
 
 export default async function AnimalPage() {
   const animals = await getAnimals();
-
+// update json file with new data
   return (
     <section className="py-4">
       <SectionHeader

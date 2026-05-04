@@ -23,15 +23,13 @@ const AnimalCard = ({ animal, index = 0 }) => {
           />
 
           <div className="absolute left-3 top-3 flex gap-2">
-            <span className="rounded-full bg-black/60 px-2 py-1 text-xs text-white">
+            <span className="rounded-full bg-black/60 px-2 py-1 text-sm text-white">
               {animal.type}
             </span>
-            <span className="rounded-full bg-emerald-500/90 px-2 py-1 text-xs font-semibold text-black">
-              Star {animal.rating || 4.5}
-            </span>
+           
           </div>
 
-          <div className="absolute right-3 top-3 flex items-center gap-1 rounded-full bg-black/60 px-2 py-1 text-xs text-white">
+          <div className="absolute right-3 top-3 flex items-center gap-1 rounded-full bg-black/60 px-2 py-1 text-sm text-white">
             <span className="h-2 w-2 rounded-full bg-green-400" />
             Available
           </div>

@@ -4,8 +4,13 @@ import path from "node:path";
 const animalsFilePath = path.join(process.cwd(), "public", "animals.json");
 
 async function readAnimals() {
-  const file = await readFile(animalsFilePath, "utf8");
-  return JSON.parse(file);
+  try {
+    const file = await readFile(animalsFilePath, "utf8");
+    return JSON.parse(file);
+  } catch (error) {
+    console.error("Error reading animals file:", error);
+    return [];
+  }
 }
 
 export async function getAnimals() {

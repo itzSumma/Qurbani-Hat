@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { authClient, useSession } from "@/lib/auth-client";
+import { toast } from "react-toastify";
 
 const AuthContext = createContext(null);
 const STORAGE_KEY = "qurbanihat-user";
@@ -97,6 +98,7 @@ export function AuthProvider({ children }) {
     } catch {}
 
     session.refetch?.();
+    toast.info("Logged out successfully");
   };
 
   const isReady = isStorageReady && !session.isPending;
